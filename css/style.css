@@ -62,8 +62,12 @@ body {
   color: #818491;
   /* background-color: orange; */
   text-align: left;
-  background-color: #f1e8c5;
+  background-color: #f3f3f3ff;
 }
+
+/* #story {
+  background-color: #f5c287ff;
+} */
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
