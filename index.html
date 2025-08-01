@@ -509,9 +509,13 @@
                     <div class="card-body p-5 rounded">
                         <div class="section-title position-relative text-center">
                             <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">RSVP</h6>
-                            <h1 class="font-secondary display-4">You're Invited!</h1>
+                            <h1 id="card-title" class="font-secondary display-4">You're Invited!</h1>
+                            <h3 id="thank-you" style="display: none;"
+                                class="font-secondary text-success display-4 text-center">Thank you!
+                            </h3>
                             <i class="far fa-heart text-dark"></i>
                         </div>
+
                         <form id="rsvp-form">
                             <div class="mb-4">
                                 <label for="name" class="form-label">Your Name</label>
@@ -538,8 +542,6 @@
                                     <label class="form-check-label" for="attendNo">No</label>
                                 </div>
                             </div>
-
-                            <p class="text-center">If you have a plus one please fill up the form again for them</p>
                     </div>
 
                     <button id="submit-btn" type="submit"
@@ -606,7 +608,7 @@
         const msg = document.getElementById("response-msg");
         const submitBtn = document.getElementById('submit-btn');
         const statusText = document.getElementById('submit-status');
-
+        const thanks = document.getElementById('thank-you');
         form.addEventListener("submit", e => {
             e.preventDefault();
             // Show "Submitting..."
@@ -638,6 +640,10 @@
                     }
                     statusText.style.display = 'none';
                     submitBtn.disabled = false;
+                    thanks.style.display = 'block'
+                    submitBtn.style.display = 'none';
+                    form.style.display = 'none';
+                    document.getElementById('card-title').style.display = 'none'
                 })
                 .catch(err => {
                     msg.textContent = "Fetch error: " + err.message;
